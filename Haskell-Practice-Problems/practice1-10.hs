@@ -49,16 +49,21 @@ myCompress (x:xs)
     | head xs == x = myCompress xs
     | otherwise = x: myCompress xs
 
--- 9 ???????????????
- myPack :: [a] -> [[a]]
- myPack (x:xs)
-    | head xs == x = myPack xs
-    | otherwise = [myPackHelper x, myPack xs] 
+-- 9 
+myPack :: (Eq a) => [a] -> [[a]]
+myPack x 
+    | (myPackHelper x) == x = [x]
+    | otherwise = (myPackHelper x) : myPack (drop (length $ myPackHelper x) x)
 
--- this part works
 myPackHelper :: (Eq a) => [a] -> [a]
 myPackHelper [] = []
 myPackHelper [x] = [x]
 myPackHelper (x:xs)
     | head xs == x = x : myPackHelper xs
     | otherwise = [x]
+
+-- 10
+encode :: (Eq a) => [a] -> [(Int, a)]
+encode x 
+    | (myPackHelper x) == x = [(length x, head x)]
+    | otherwise = (length (myPackHelper x), head (myPackHelper x)) : encode (drop (length $ myPackHelper x) x)
