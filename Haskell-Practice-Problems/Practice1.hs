@@ -1,3 +1,8 @@
+-- https://wiki.haskell.org/99_questions/1_to_10
+module Practice1 ( myLast, mySecondLast, elementAt, myLength, myReverse, isPalindrome, myPack,
+        myPackHelper, myCompress, myFlatten, encode) where
+
+
 -- 1
 myLast :: [a] -> a
 myLast [] = error "nothing in list" 
