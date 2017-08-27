@@ -1,3 +1,0 @@
-rotate matrix: rotate an nxn matrix 90 degrees
-zero matrix: if an element in an mxn matrix is 0 set the entire row and column to zero
-string rotation: use issubstring to check if a word is a rotation of another
